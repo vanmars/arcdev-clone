@@ -11,6 +11,11 @@ import customSoftwareIcon from '../assets/Custom Software Icon.svg';
 import mobileAppsIcon from '../assets/mobileIcon.svg';
 import websitesIcon from '../assets/websiteIcon.svg';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import revolutionBackground from '../assets/repeatingBackground.svg';
+// import Card from '@material-ui/core/Card;'
+// import Card from '@material-ui/core/Card;'
 
 const useStyles = makeStyles(theme => ({
   animation: {
@@ -85,8 +90,26 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("sm")]: {
       padding: 25
     }
+  },
+  revolutionBackground: {
+    backgroundImage: `url(${revolutionBackground})`,
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    height: "100%",
+    width: "100%"
+  },
+  revolutionCard: {
+    position: "absolute",
+    boxShadow: theme.shadows[10],
+    borderRadius: 15,
+    padding: "10em",
+    [theme.breakpoints.down("sm")]: {
+      padding: "8em 0",
+      borderRadius: 0,
+      wdith: "100%"
+    }
   }
-  
 }))
 
 const LandingPage = () => {
@@ -96,7 +119,7 @@ const LandingPage = () => {
 
   const defaultOptions = {
     loop: true,
-    autoplay: true,
+    autoplay: false,
     animationData: animationData,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice'
@@ -109,7 +132,7 @@ const LandingPage = () => {
         <Grid item> {/*---------HERO BLOCK ---------- */}
           <Grid container direction="row" justify="flex-end" alignItems="center">
             <Grid sm item clasName={classes.heroTextContainer}>
-              <Typography variant="h2" align="center">Bring West Coast Technology<br />to the Midwest</Typography>
+              <Typography variant="h2" align="center">Bringing West Coast Technology<br />to the Midwest</Typography>
               <Grid container justify="center" className={classes.buttonContainer}>
                 <Grid item>
                   <Button className={classes.estimateButton} variant="contained">
@@ -152,7 +175,7 @@ const LandingPage = () => {
           </Grid>
         </Grid>
 
-        <Grid item> {/*---------iOS/ANDROED BLOCK ---------- */}
+        <Grid item> {/*---------iOS/ANDROID BLOCK ---------- */}
           <Grid container direction="row" justify={matchesSM ? "center" : "flex-end" } className={classes.serviceContainer}>
             <Grid item style={{textAlign: matchesSM ? "center" : undefined}}>
               <Typography variant="h4">
@@ -193,6 +216,32 @@ const LandingPage = () => {
             <Grid item>
               <img alt="website icon" src={websitesIcon} className={classes.icon} />
             </Grid>
+          </Grid>
+        </Grid>
+
+        <Grid item> {/*--------- REVOLUTION CARD ---------- */}
+          <Grid container alignItems="center" justify="center" style={{height:"100em", marginTop: "12em"}}>
+            <Card className={classes.revolutionCard}>
+              <CardContent>
+                <Grid container direction="column" style={{textAlign: "center"}}>
+                  <Grid item>
+                    <Typography variant="h3" gutterBottom>
+                      The Revolution
+                    </Typography>
+                  </Grid>
+                  <Grid item>
+                    <Typography variant="subtitle1" gutterBottom>
+                      Visionary insights couples with cutting-edget technology is a recipe for revolution.
+                    </Typography>
+                    <Button variant="outlined" className={classes.learnButtonHero}>
+                      Learn More
+                    </Button>
+                  </Grid>
+
+                </Grid>
+              </CardContent>
+            </Card>
+            <div className={classes.revolutionBackground} />
           </Grid>
         </Grid>
 
