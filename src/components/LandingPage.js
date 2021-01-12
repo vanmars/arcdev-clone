@@ -8,6 +8,7 @@ import animationData from '../animations/landinganimation/data'
 import Typography from '@material-ui/core/Typography';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import customSoftwareIcon from '../assets/Custom Software Icon.svg';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles(theme => ({
   animation: {
@@ -43,7 +44,10 @@ const useStyles = makeStyles(theme => ({
     ...theme.typography.learnButton,
     fontSize: "0.7em",
     height: 35,
-    padding: 5
+    padding: 5,
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: "2em"
+    }
   },
   mainContainer: {
     marginTop: "5em",
@@ -67,6 +71,18 @@ const useStyles = makeStyles(theme => ({
   },
   subtitle: {
     marginBottom: "1em"
+  },
+  icon: { 
+    marginLeft: "2em",
+    [theme.breakpoints.down("xs")]: {
+      marginLeft: 0
+    }
+  },
+  serviceContainer: {
+    marginTop: "12em",
+    [theme.breakpoints.down("sm")]: {
+      padding: 25
+    }
   }
   
 }))
@@ -74,6 +90,7 @@ const useStyles = makeStyles(theme => ({
 const LandingPage = () => {
   const classes = useStyles();
   const theme = useTheme();
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"))
 
   const defaultOptions = {
     loop: true,
@@ -111,9 +128,9 @@ const LandingPage = () => {
         </Grid>
         <Grid item> {/*---------SERVICES BLOCK ---------- */}
 
-          <Grid container direction="row">
+          <Grid container direction="row" justify={matchesSM ? "center" : undefined } className={classes.serviceContainer}>
 
-            <Grid item>
+            <Grid item style={{marginLeft: matchesSM ? 0 : "5em", textAlign: matchesSM ? "center" : undefined}}>
               <Typography variant="h4">
                 Custom Software Development
               </Typography>
@@ -130,7 +147,7 @@ const LandingPage = () => {
             </Grid>
 
             <Grid item>
-              <img alt="custom software icon" src={customSoftwareIcon} />
+              <img alt="custom software icon" src={customSoftwareIcon} className={classes.icon} />
             </Grid>
 
           </Grid>
