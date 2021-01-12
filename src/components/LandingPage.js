@@ -15,8 +15,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import revolutionBackground from '../assets/repeatingBackground.svg';
 import infoBackground from '../assets/infoBackground.svg';
-// import Card from '@material-ui/core/Card;'
-// import Card from '@material-ui/core/Card;'
+import CallToAction from './ui/CallToAction';
 
 const useStyles = makeStyles(theme => ({
   animation: {
@@ -257,13 +256,11 @@ const LandingPage = () => {
 
         <Grid item> {/*--------- INFORMATION BLOCK---------- */}
           <Grid container direction="row" alignItems="center" style={{height: "80em"}}>
-  
             <Grid item container 
               style={{position: "absolute", textAlign: matchesXS ? "center" : "inherit"}} 
               direction={matchesXS ? "column" : "row"}
               spacing={matchesXS ? 10 : 0}
             >
-
               <Grid item sm style={{marginLeft: matchesXS ? 0 : matchesSM ? "2em" : "5em"}}>
                 <Grid container direction="column">
                   <Typography variant="h2" style={{color: "white"}}>
@@ -279,7 +276,6 @@ const LandingPage = () => {
                   </Grid>
                 </Grid>
               </Grid>
-
               <Grid item sm style={{marginRight: matchesXS ? 0 : matchesSM ? "2em" : "5em", textAlign: matchesXS ? "center" : "right"}}>
                 <Grid container direction="column">
                   <Typography variant="h2" style={{color: "white"}}>
@@ -295,12 +291,13 @@ const LandingPage = () => {
                   </Grid>
                 </Grid>
               </Grid>
-
             </Grid>
-
             <div className={classes.infoBackground} />
-
           </Grid>
+        </Grid>
+
+        <Grid item> {/*--------- CALL TO ACTION---------- */}
+          <CallToAction />
         </Grid>
 
       </Grid>
