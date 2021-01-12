@@ -8,6 +8,7 @@ import animationData from '../animations/landinganimation/data'
 import Typography from '@material-ui/core/Typography';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import customSoftwareIcon from '../assets/Custom Software Icon.svg';
+import mobileAppsIcon from '../assets/mobileIcon.svg';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles(theme => ({
@@ -126,10 +127,9 @@ const LandingPage = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item> {/*---------SERVICES BLOCK ---------- */}
 
+        <Grid item> {/*---------CUSTOM SOFTWARE BLOCK ---------- */}
           <Grid container direction="row" justify={matchesSM ? "center" : undefined } className={classes.serviceContainer}>
-
             <Grid item style={{marginLeft: matchesSM ? 0 : "5em", textAlign: matchesSM ? "center" : undefined}}>
               <Typography variant="h4">
                 Custom Software Development
@@ -145,14 +145,34 @@ const LandingPage = () => {
                 Learn More
               </Button>
             </Grid>
-
             <Grid item>
               <img alt="custom software icon" src={customSoftwareIcon} className={classes.icon} />
             </Grid>
-
           </Grid>
-
         </Grid>
+
+        <Grid item> {/*---------iOS/ANDROED BLOCK ---------- */}
+          <Grid container direction="row" justify={matchesSM ? "center" : "flex-end" } className={classes.mobileContainer}>
+            <Grid item style={{textAlign: matchesSM ? "center" : undefined}}>
+              <Typography variant="h4">
+                iOS/Android App Development
+              </Typography>
+              <Typography variant="subtitle1" className={classes.subtitle}>
+                Extend Functionality. Extend Access. Increase Engagement.
+              </Typography>
+              <Typography variant="subtitle1">
+                Integrate your web experience or create a standalone app {matchesSM ? null : <br />} with either mobile platform.
+              </Typography>
+              <Button variant="outlined" className={classes.learnButton}>
+                Learn More
+              </Button>
+            </Grid>
+            <Grid item style={{marginRight: matchesSM ? 0 : "5em"}}>
+              <img alt="mobile phone icon" src={mobileAppsIcon} className={classes.icon} />
+            </Grid>
+          </Grid>
+        </Grid>
+
       </Grid>
       
       </React.Fragment>

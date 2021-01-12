@@ -72,7 +72,7 @@ const Footer = (props) => {
             <Grid container direction="column" spacing={2}>
               <Grid item onClick={() => {props.setValue(1); props.setSelectedIndex(0)}} className={classes.link} component={Link} to="/services">Services</Grid>
               <Grid item onClick={() => {props.setValue(1); props.setSelectedIndex(1)}} className={classes.link} component={Link} to="/customsoftware">Custom Software Development</Grid>
-              <Grid item onClick={() => {props.setValue(1); props.setSelectedIndex(2)}} className={classes.link} component={Link} to="/mobileapps">Mobile Development</Grid>
+              <Grid item onClick={() => {props.setValue(1); props.setSelectedIndex(2)}} className={classes.link} component={Link} to="/mobileapps">iOS/Android App Development</Grid>
               <Grid item onClick={() => {props.setValue(1); props.setSelectedIndex(3)}} className={classes.link} component={Link} to="/websites">Website Development</Grid>
             </Grid>
           </Grid>
