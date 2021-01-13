@@ -121,7 +121,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const LandingPage = () => {
+const LandingPage = (props) => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
@@ -145,12 +145,24 @@ const LandingPage = () => {
               <Typography variant="h2" align="center">Bringing West Coast Technology<br />to the Midwest</Typography>
               <Grid container justify="center" className={classes.buttonContainer}>
                 <Grid item>
-                  <Button component={Link} to='/estimate' className={classes.estimateButton} variant="contained">
+                  <Button 
+                    component={Link} 
+                    to='/estimate' 
+                    className={classes.estimateButton} 
+                    variant="contained"
+                    onClick={() => props.setValue(5)}
+                  >
                     Free Estimate
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button component={Link} to='/revolution' variant="outlined" className={classes.learnButtonHero}>
+                  <Button 
+                    component={Link} 
+                    to='/revolution' 
+                    variant="outlined" 
+                    className={classes.learnButtonHero}
+                    onClick={() => props.setValue(2)}
+                  >
                     Learn More
                   </Button>
                 </Grid>
@@ -175,7 +187,7 @@ const LandingPage = () => {
                 Complete digital solutions, from investigation to {" "}
                 <span className={classes.specialText}>celebration.</span>
               </Typography>
-              <Button component={Link} to='/customsoftware' variant="outlined" className={classes.learnButton}>
+              <Button onClick={() => {props.setValue(1); props.setSelectedIndex(1)}} component={Link} to='/customsoftware' variant="outlined" className={classes.learnButton}>
                 Learn More
               </Button>
             </Grid>
@@ -197,7 +209,7 @@ const LandingPage = () => {
               <Typography variant="subtitle1">
                 Integrate your web experience or create a standalone app {matchesSM ? null : <br />} with either mobile platform.
               </Typography>
-              <Button component={Link} to='/mobileapps' variant="outlined" className={classes.learnButton}>
+              <Button onClick={() => {props.setValue(1); props.setSelectedIndex(2)}} component={Link} to='/mobileapps' variant="outlined" className={classes.learnButton}>
                 Learn More
               </Button>
             </Grid>
@@ -219,7 +231,7 @@ const LandingPage = () => {
               <Typography variant="subtitle1">
                 Optimized for Search Engines. Built for speed.
               </Typography>
-              <Button component={Link} to='/websites' variant="outlined" className={classes.learnButton}>
+              <Button onClick={() => {props.setValue(1); props.setSelectedIndex(3)}} component={Link} to='/websites' variant="outlined" className={classes.learnButton}>
                 Learn More
               </Button>
             </Grid>
@@ -243,7 +255,7 @@ const LandingPage = () => {
                     <Typography variant="subtitle1" gutterBottom>
                       Visionary insights couples with cutting-edget technology is a recipe for revolution.
                     </Typography>
-                    <Button component={Link} to='/revolution' variant="outlined" className={classes.learnButton}>
+                    <Button onClick={() => props.setValue(2)} component={Link} to='/revolution' variant="outlined" className={classes.learnButton}>
                       Learn More
                     </Button>
                   </Grid>
@@ -256,14 +268,13 @@ const LandingPage = () => {
         </Grid>
 
         <Grid item> {/*--------- INFORMATION BLOCK---------- */}
-          <Grid container direction="row" alignItems="center" style={{height: "80em"}}>
+          <Grid container className={classes.infoBackground} direction="row" alignItems="center" style={{height: "80em"}}>
             <Grid item container 
-              style={{position: "absolute", textAlign: matchesXS ? "center" : "inherit"}} 
+              style={{textAlign: matchesXS ? "center" : "inherit"}} 
               direction={matchesXS ? "column" : "row"}
-              spacing={matchesXS ? 10 : 0}
             >
               <Grid item sm style={{marginLeft: matchesXS ? 0 : matchesSM ? "2em" : "5em"}}>
-                <Grid container direction="column">
+                <Grid container direction="column" style={{marginBottom: matchesXS ? "10em" : 0}}>
                   <Typography variant="h2" style={{color: "white"}}>
                     About Us
                   </Typography>
@@ -271,7 +282,7 @@ const LandingPage = () => {
                     Let's get personal.
                   </Typography>
                   <Grid item>
-                    <Button component={Link} to='/about' variant="outlined" className={classes.learnButton} style={{color: "white", borderColor: "white"}}>
+                    <Button onClick={() => props.setValue(3)} component={Link} to='/about' variant="outlined" className={classes.learnButton} style={{color: "white", borderColor: "white"}}>
                       Learn More
                     </Button>
                   </Grid>
@@ -286,19 +297,20 @@ const LandingPage = () => {
                     Say hello! <span frole="img" aria-label="waving hand">👋</span>
                   </Typography>
                   <Grid item>
-                    <Button component={Link} to='/contact' variant="outlined" className={classes.learnButton} style={{color: "white", borderColor: "white"}}>
+                    <Button onClick={() => props.setValue(4)} component={Link} to='/contact' variant="outlined" className={classes.learnButton} style={{color: "white", borderColor: "white"}}>
                       Learn More
                     </Button>
                   </Grid>
                 </Grid>
               </Grid>
             </Grid>
-            <div className={classes.infoBackground} />
           </Grid>
         </Grid>
 
         <Grid item> {/*--------- CALL TO ACTION---------- */}
-          <CallToAction />
+          <CallToAction 
+            setValue={props.setValue}
+          />
         </Grid>
 
       </Grid>

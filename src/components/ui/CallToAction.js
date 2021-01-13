@@ -41,6 +41,9 @@ const useStyles = makeStyles(theme => ({
     fontSize: "1.5rem",
     marginRight: "5em",
     marginLeft: "2em",
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.light
+    },
     [theme.breakpoints.down("sm")]: {
       marginLeft: 0,
       marginRight: 0
@@ -48,7 +51,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const CallToAction = () => {
+const CallToAction = (props) => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
@@ -74,7 +77,7 @@ const CallToAction = () => {
             <Typography variant="subtitle2" style={{fontSize: "1.5rem"}}>Take advantage of the 21st century.</Typography>
             
             <Grid container justify={matchesSM ? "center" : undefined} item>
-              <Button component={Link} to='/revolution' variant="outlined" className={classes.learnButton}>
+              <Button onClick={() => props.setValue(2)} component={Link} to='/revolution' variant="outlined" className={classes.learnButton}>
                 <span style={{margin: 5}}>Learn More</span>
               </Button>
             </Grid>
@@ -82,7 +85,7 @@ const CallToAction = () => {
         </Grid>
       </Grid>
       <Grid item>
-        <Button component={Link} to='/estimate' variant="contained" className={classes.estimateButton}>Free Estimate</Button>
+        <Button onClick={() => props.setValue(5)} component={Link} to='/estimate' variant="contained" className={classes.estimateButton}>Free Estimate</Button>
       </Grid>
     </Grid>
    );
