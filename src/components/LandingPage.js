@@ -16,6 +16,7 @@ import CardContent from '@material-ui/core/CardContent';
 import revolutionBackground from '../assets/repeatingBackground.svg';
 import infoBackground from '../assets/infoBackground.svg';
 import CallToAction from './ui/CallToAction';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   animation: {
@@ -144,12 +145,12 @@ const LandingPage = () => {
               <Typography variant="h2" align="center">Bringing West Coast Technology<br />to the Midwest</Typography>
               <Grid container justify="center" className={classes.buttonContainer}>
                 <Grid item>
-                  <Button className={classes.estimateButton} variant="contained">
+                  <Button component={Link} to='/estimate' className={classes.estimateButton} variant="contained">
                     Free Estimate
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button variant="outlined" className={classes.learnButtonHero}>
+                  <Button component={Link} to='/revolution' variant="outlined" className={classes.learnButtonHero}>
                     Learn More
                   </Button>
                 </Grid>
@@ -174,7 +175,7 @@ const LandingPage = () => {
                 Complete digital solutions, from investigation to {" "}
                 <span className={classes.specialText}>celebration.</span>
               </Typography>
-              <Button variant="outlined" className={classes.learnButton}>
+              <Button component={Link} to='/customsoftware' variant="outlined" className={classes.learnButton}>
                 Learn More
               </Button>
             </Grid>
@@ -196,7 +197,7 @@ const LandingPage = () => {
               <Typography variant="subtitle1">
                 Integrate your web experience or create a standalone app {matchesSM ? null : <br />} with either mobile platform.
               </Typography>
-              <Button variant="outlined" className={classes.learnButton}>
+              <Button component={Link} to='/mobileapps' variant="outlined" className={classes.learnButton}>
                 Learn More
               </Button>
             </Grid>
@@ -218,7 +219,7 @@ const LandingPage = () => {
               <Typography variant="subtitle1">
                 Optimized for Search Engines. Built for speed.
               </Typography>
-              <Button variant="outlined" className={classes.learnButton}>
+              <Button component={Link} to='/websites' variant="outlined" className={classes.learnButton}>
                 Learn More
               </Button>
             </Grid>
@@ -242,7 +243,7 @@ const LandingPage = () => {
                     <Typography variant="subtitle1" gutterBottom>
                       Visionary insights couples with cutting-edget technology is a recipe for revolution.
                     </Typography>
-                    <Button variant="outlined" className={classes.learnButton}>
+                    <Button component={Link} to='/revolution' variant="outlined" className={classes.learnButton}>
                       Learn More
                     </Button>
                   </Grid>
@@ -270,7 +271,7 @@ const LandingPage = () => {
                     Let's get personal.
                   </Typography>
                   <Grid item>
-                    <Button variant="outlined" className={classes.learnButton} style={{color: "white", borderColor: "white"}}>
+                    <Button component={Link} to='/about' variant="outlined" className={classes.learnButton} style={{color: "white", borderColor: "white"}}>
                       Learn More
                     </Button>
                   </Grid>
@@ -285,7 +286,7 @@ const LandingPage = () => {
                     Say hello! <span frole="img" aria-label="waving hand">👋</span>
                   </Typography>
                   <Grid item>
-                    <Button variant="outlined" className={classes.learnButton} style={{color: "white", borderColor: "white"}}>
+                    <Button component={Link} to='/contact' variant="outlined" className={classes.learnButton} style={{color: "white", borderColor: "white"}}>
                       Learn More
                     </Button>
                   </Grid>

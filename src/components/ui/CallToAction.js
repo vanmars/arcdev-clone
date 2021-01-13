@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { Link } from 'react-router-dom';
 
 import background from '../../assets/background.jpg';
 import mobileBackground from '../../assets/mobileBackground.jpg';
@@ -73,7 +74,7 @@ const CallToAction = () => {
             <Typography variant="subtitle2" style={{fontSize: "1.5rem"}}>Take advantage of the 21st century.</Typography>
             
             <Grid container justify={matchesSM ? "center" : undefined} item>
-              <Button variant="outlined" className={classes.learnButton}>
+              <Button component={Link} to='/revolution' variant="outlined" className={classes.learnButton}>
                 <span style={{margin: 5}}>Learn More</span>
               </Button>
             </Grid>
@@ -81,7 +82,7 @@ const CallToAction = () => {
         </Grid>
       </Grid>
       <Grid item>
-        <Button variant="contained" className={classes.estimateButton}>Free Estimate</Button>
+        <Button component={Link} to='/estimate' variant="contained" className={classes.estimateButton}>Free Estimate</Button>
       </Grid>
     </Grid>
    );

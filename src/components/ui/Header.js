@@ -177,6 +177,9 @@ const Header = (props) => {
             }
           }
           break;
+        case '/estimate':
+          props.setValue(5);
+          break;
         default:
           break;
       }
@@ -208,6 +211,9 @@ const Header = (props) => {
         variant="contained" 
         color="secondary" 
         className={classes.button}
+        component={Link} 
+        to="/estimate"
+        onClick={() => props.setValue(5)}
       >
         Free Estimate
       </Button>
